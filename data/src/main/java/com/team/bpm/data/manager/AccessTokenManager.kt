@@ -6,6 +6,8 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
 
+
+
 class AccessTokenManager @Inject constructor(
     private val sharedPreferenceManager: SharedPreferenceManager
 ) : Interceptor {
@@ -25,7 +27,7 @@ class AccessTokenManager @Inject constructor(
 //            requestBuilder.addHeader(KEY_HEADER, token)
 //        }
 
-        requestBuilder.addHeader(KEY_HEADER, token)
+        requestBuilder.addHeader(KEY_HEADER, TOKEN_TEST_ADMIN)
 
         if (!shouldBeAuthorized) {
             requestBuilder.removeHeader("shouldBeAuthorized")
@@ -37,6 +39,8 @@ class AccessTokenManager @Inject constructor(
     companion object {
         const val KEY_HEADER = "Authorization"
         const val KEY_SHOULD_BE_AUTHORIZED = "shouldBeAuthorized"
+
+        const val TOKEN_TEST_ADMIN = "Token eyJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiNyIsImlhdCI6MTY4NzY4ODAzMiwiZXhwIjoxNjkwNjg4MDMyfQ.M4YFT89Rjo3Y5YdfPuGgWj_QJKPaeEUcm3_pdbdJTxs"
 
         const val TOKEN_TEST =
             "Token eyJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiNiIsImlhdCI6MTY4NTA3MDQ0NCwiZXhwIjoxNjg4MDcwNDQ0fQ.QhzaeQj8kCLOOaMawbUNXKv849g4M9QItIfKZfSEcio" // forTest
